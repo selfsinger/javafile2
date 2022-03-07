@@ -28,7 +28,7 @@ public class CountryTester {
 		countries1.add("Oman");
 		System.out.println();
 	   countries1.find("Egypt");
-		System.out.println();
+	
 		
 		
 
