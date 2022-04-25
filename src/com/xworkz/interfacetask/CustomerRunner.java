@@ -76,6 +76,8 @@ public class CustomerRunner {
 		System.out.println();
 		CustomerDTO dto2 = customerDAO.findByName("kachkebal");
 		System.out.println(dto2);
+		
+		customerService.validateAddressDTO(customerDTO1);
 
 		// init all variables
 
