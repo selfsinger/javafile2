@@ -1,18 +1,14 @@
 package com.xworkz.politics;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import com.xworkz.politics.comparator.PoliticalPartyIdComparator;
 import com.xworkz.politics.comparator.PoliticalPartyNameComparator;
-import com.xworkz.politics.dao.PolitcalDAOImpl;
+import com.xworkz.politics.dao.PolitcalPartyDAOImpl;
 import com.xworkz.politics.dao.PoliticalPartyDAO;
 import com.xworkz.politics.dto.PoliticalPartyDTO;
-import com.xworkz.politics.service.PoliticalServiceImpl;
+import com.xworkz.politics.service.PoliticalPartyServiceImpl;
+import com.xworkz.politics.service.PoliticalPartyServiceImpl;
 
 public class PoliticsTester {
 
@@ -22,10 +18,10 @@ public class PoliticsTester {
 		PoliticalPartyDTO politics3 = new PoliticalPartyDTO(203, "EPP", "Conrad Sangma", true, 10);
 		PoliticalPartyDTO politics4 = new PoliticalPartyDTO(202, "CPI", "D  Raja", true, 19);
 
-		PolitcalDAOImpl dao = new PolitcalDAOImpl();
+		PolitcalPartyDAOImpl dao = new PolitcalPartyDAOImpl();
 
 		System.out.println();
-		PoliticalServiceImpl service = new PoliticalServiceImpl(dao);
+		PoliticalPartyServiceImpl service = new PoliticalPartyServiceImpl(dao);
 		service.validateAndSave(politics1);
 		System.out.println();
 		service.validateAndSave(politics2);

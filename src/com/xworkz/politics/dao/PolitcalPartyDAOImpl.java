@@ -5,9 +5,9 @@ import java.util.*;
 import com.xworkz.politics.comparator.PoliticalPartyIdComparator;
 import com.xworkz.politics.dto.PoliticalPartyDTO;
 
-public class PolitcalDAOImpl implements PoliticalPartyDAO {
+public class PolitcalPartyDAOImpl implements PoliticalPartyDAO {
 
-	public PolitcalDAOImpl() {
+	public PolitcalPartyDAOImpl() {
 		System.out.println("this is from:" + this.getClass().getSimpleName());
 	}
 

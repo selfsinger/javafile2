@@ -1,27 +1,20 @@
 package com.xworkz.politics.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
-import com.xworkz.politics.comparator.PoliticalPartyIdComparator;
-import com.xworkz.politics.comparator.PoliticalPartyIdNameComparator;
-import com.xworkz.politics.comparator.PoliticalPartyNameComparator;
-import com.xworkz.politics.dao.PolitcalDAOImpl;
+import com.xworkz.politics.comparator.*;
+import com.xworkz.politics.dao.PolitcalPartyDAOImpl;
 import com.xworkz.politics.dao.PoliticalPartyDAO;
 import com.xworkz.politics.dto.PoliticalPartyDTO;
 
-public class PoliticalServiceImpl implements PoliticalPartyService {
+public class PoliticalPartyServiceImpl implements PoliticalPartyService {
 
 	private PoliticalPartyDAO politicalDAO;
 
 	private List<PoliticalPartyDTO> list = new ArrayList<PoliticalPartyDTO>();
 	private List<PoliticalPartyDTO> political = new ArrayList<PoliticalPartyDTO>();
 
-	public PoliticalServiceImpl(PoliticalPartyDAO politicalDAO) {
+	public PoliticalPartyServiceImpl(PoliticalPartyDAO politicalDAO) {
 		if (politicalDAO != null) {
 			System.out.println("this is from:" + this.getClass().getSimpleName());
 			this.politicalDAO = politicalDAO;
