@@ -2,13 +2,24 @@ package com.xworkz.politics.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
+import com.xworkz.politics.comparator.PoliticalPartyIdComparator;
+import com.xworkz.politics.comparator.PoliticalPartyIdNameComparator;
+import com.xworkz.politics.comparator.PoliticalPartyNameComparator;
+import com.xworkz.politics.dao.PolitcalDAOImpl;
 import com.xworkz.politics.dao.PoliticalPartyDAO;
 import com.xworkz.politics.dto.PoliticalPartyDTO;
 
 public class PoliticalServiceImpl implements PoliticalPartyService {
 
 	private PoliticalPartyDAO politicalDAO;
+
+	private List<PoliticalPartyDTO> list = new ArrayList<PoliticalPartyDTO>();
+	private List<PoliticalPartyDTO> political = new ArrayList<PoliticalPartyDTO>();
 
 	public PoliticalServiceImpl(PoliticalPartyDAO politicalDAO) {
 		if (politicalDAO != null) {
@@ -33,23 +44,24 @@ public class PoliticalServiceImpl implements PoliticalPartyService {
 				System.out.println("id is not correct");
 				return false;
 			}
-			if (politicalDto.getName() == null && politicalDto.getName().length() < 3 && politicalDto.getName().length() > 50
-					&& !politicalDto.getName().matches("[a-zA-z]*") ) {
+			if (politicalDto.getName() == null && politicalDto.getName().length() < 3
+					&& politicalDto.getName().length() > 50 && !politicalDto.getName().matches("[a-zA-z]*")) {
 				System.out.println("name is not correct");
 				return false;
 
 			}
 
-			if (politicalDto.getPresidentName() ==null && politicalDto.getPresidentName().length()<3 &&
-					politicalDto.getPresidentName().length()>50 && !politicalDto.getPresidentName().matches("[a-zA-z]*")){
+			if (politicalDto.getPresidentName() == null && politicalDto.getPresidentName().length() < 3
+					&& politicalDto.getPresidentName().length() > 50
+					&& !politicalDto.getPresidentName().matches("[a-zA-z]*")) {
 				System.out.println("president name is not correct");
 				return false;
 
 			}
-			if(politicalDto.getNoOfMps()<=0) {
+			if (politicalDto.getNoOfMps() <= 0) {
 				System.out.println("noOfMp is not correct");
 				return false;
-			}else {
+			} else {
 				politicalDAO.save(politicalDto);
 				return true;
 			}
@@ -68,5 +80,47 @@ public class PoliticalServiceImpl implements PoliticalPartyService {
 		}
 
 	}
+	@Override
+	public boolean save(PoliticalPartyDTO dto) {
+		if (dto != null) {
+			System.out.println(political.add(dto));
+			System.out.println("Here.... saving the elements :" + political.size());
+			return true;
+		}
+	
+		return false;
+	}
 
+
+	@Override
+	public Collection<PoliticalPartyDTO> sortByName() {
+
+		Comparator<PoliticalPartyDTO> nameComparator = new PoliticalPartyNameComparator();
+		return politicalDAO.sorter(nameComparator);
+	}
+
+	@Override
+	public Collection<PoliticalPartyDTO> sortById() {
+		Comparator<PoliticalPartyDTO> idComparator = new PoliticalPartyIdComparator();
+		return politicalDAO.sorter(idComparator);
+
+	}
+
+	@Override
+	public Collection<PoliticalPartyDTO> sortByNameAndId() {
+		Comparator<PoliticalPartyDTO> idNameComparator = new PoliticalPartyIdNameComparator();
+		for (PoliticalPartyDTO pol : political) {
+			System.out.println("size:"+political.size());
+			System.out.println(pol);
+		}
+		political.sort(new PoliticalPartyIdNameComparator());
+		System.out.println("after sorting");
+		for (PoliticalPartyDTO pol : political) {
+			System.out.println(pol);
+		}
+		return politicalDAO.sorter(idNameComparator);
+
+	}
+
+	
 }

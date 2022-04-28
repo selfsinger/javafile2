@@ -7,18 +7,13 @@ import com.xworkz.politics.dto.PoliticalPartyDTO;
 public class PoliticalPartyNameComparator implements Comparator<PoliticalPartyDTO>{
 
 	@Override
-	public int compare(PoliticalPartyDTO object1, PoliticalPartyDTO object2) {
-		System.out.println("comparing politicalParty dtos by id");
-		int id1=object1.getId();
-		int id2=object2.getId();
+	public int compare(PoliticalPartyDTO o1, PoliticalPartyDTO o2)
+	{
+		System.out.println("comparing politicalParty dtos by name");
+		int comparision=0;
+		comparision=o1.getName().compareTo(o2.getName());
+		return comparision;
 		
-		if(id1==id2)
-			return 0;
-		if(id1>id2)
-			return 100;
-		if(id1<id2)
-			return -50;
-		return 0;
 		
 	}
 

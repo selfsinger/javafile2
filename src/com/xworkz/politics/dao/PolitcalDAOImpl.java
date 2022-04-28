@@ -2,7 +2,7 @@ package com.xworkz.politics.dao;
 
 import java.util.*;
 
-import com.xworkz.politics.comparator.PoliticalPartyNameComparator;
+import com.xworkz.politics.comparator.PoliticalPartyIdComparator;
 import com.xworkz.politics.dto.PoliticalPartyDTO;
 
 public class PolitcalDAOImpl implements PoliticalPartyDAO {
@@ -11,15 +11,13 @@ public class PolitcalDAOImpl implements PoliticalPartyDAO {
 		System.out.println("this is from:" + this.getClass().getSimpleName());
 	}
 
-	Collection<PoliticalPartyDTO> collect = new ArrayList<>();
-	List<PoliticalPartyDTO> political = new LinkedList<PoliticalPartyDTO>();
+	List<PoliticalPartyDTO> political = new ArrayList<PoliticalPartyDTO>();
 
 	@Override
 	public boolean save(PoliticalPartyDTO dto) {
 		if (dto != null) {
 			System.out.println(political.add(dto));
 			System.out.println("Here.... saving the elements :" + political.size());
-			// System.out.println(collect.toString());
 			return true;
 		}
 
@@ -43,18 +41,13 @@ public class PolitcalDAOImpl implements PoliticalPartyDAO {
 	}
 
 	@Override
-	public void sortById() {
-		Comparator<PoliticalPartyDTO> comparator=new PoliticalPartyNameComparator();
-		System.out.println("Before sorting......");
-		for(PoliticalPartyDTO party:political) {
-			System.out.println(party);
+	public Collection<PoliticalPartyDTO> sorter(Comparator<PoliticalPartyDTO> comparator) {
+		if (comparator != null) {
+			political.sort(comparator);
+			return political;
 		}
-		System.out.println("After sorting.......");
-		political.sort(comparator);
-		for(PoliticalPartyDTO party:political) {
-			System.out.println(party);
-
+		System.out.println("No comparators");
+		return political;
 	}
 
-}
 }
