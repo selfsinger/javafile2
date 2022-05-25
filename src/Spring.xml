@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+        
+        <bean class="com.xworkz.springheadset.HeadSet" id="head1">
+        <constructor-arg value="Boat"/>
+        <constructor-arg value="Black"/>
+        </bean>
+        
+       <bean class="com.xworkz.springheadset.HeadSet" id="head2">
+       <constructor-arg value="oneyear"/>
+        <constructor-arg value="1500" type="int"/></bean> 
+        
+        <bean class="com.xworkz.springheadset.HeadSet" id="head3">
+        <constructor-arg value="Jabra"/>
+        <constructor-arg value="twoyear"/>
+        <constructor-arg value="2000" type="int"/>
+         </bean> 
+         
+         <bean class="com.xworkz.springheadset.HeadSet"  id="head4">
+          <constructor-arg value="Red"/>
+         </bean> 
+         
+         <bean class="com.xworkz.springheadset.HeadSet"  id="head5">
+          <constructor-arg value="2500" type="int"/>
+         </bean>  
+         
+         <bean class="com.xworkz.springheadset.HeadSet" id="head6">
+         <constructor-arg value="3000" type="int"/>
+         <constructor-arg value="Blue"/>	
+         </bean>
+         
+         <bean class="com.xworkz.springheadset.HeadSet" id="head7">
+         <constructor-arg value="Logitech"/>
+         <constructor-arg value="true" type="boolean"/>	
+         </bean>
+         
+         <bean class="com.xworkz.springheadset.HeadSet" id="head8">
+         <constructor-arg value="true" type="boolean"/>	
+         </bean>
+</beans>
