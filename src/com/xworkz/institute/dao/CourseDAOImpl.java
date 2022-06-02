@@ -8,7 +8,7 @@ import com.xworkz.institute.dto.CourseDTO;
 public class CourseDAOImpl implements CourseDAO {
 
 	@Override
-	public boolean save(CourseDTO dto) {
+	public boolean saveTheData(CourseDTO dto) {
 		// System.out.println("saving".concat(dto.toString()));
 
 		String insertQuery = "insert into course_details values(?,?,?,?,?,?)";
@@ -18,7 +18,7 @@ public class CourseDAOImpl implements CourseDAO {
 
 			statement.setInt(1, dto.getId());
 			statement.setString(2, dto.getCourseName());
-			statement.setString(3, dto.getDuration().toString());
+			statement.setFloat(3, dto.getDuration());
 			statement.setInt(4, dto.getFees());
 			statement.setString(5, dto.getStartDate().toString());
 			statement.setBoolean(6, dto.getFree());

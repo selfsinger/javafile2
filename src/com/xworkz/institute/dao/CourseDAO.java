@@ -4,6 +4,8 @@ import com.xworkz.institute.dto.CourseDTO;
 
 public interface CourseDAO {
 	
-	boolean save(CourseDTO dto);
+	boolean saveTheData(CourseDTO dto);
+
+	
 
 }

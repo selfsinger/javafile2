@@ -6,7 +6,7 @@ public interface CourseService {
 	
 	boolean validate(CourseDTO dto) ;
 	
-	 boolean save(CourseDTO dto) ;
+	 boolean saveTheData(CourseDTO dto) ;
 	 }
 
 

@@ -18,7 +18,7 @@ public class CourseDTO {
 	
 	private int id;
 	private String courseName;
-	private LocalTime duration;
+	private Float duration;
 	private int fees;
 	private LocalDate startDate;
 	private boolean free;
@@ -26,6 +26,8 @@ public class CourseDTO {
 	 public boolean getFree() {
 		 return free;
 	 }
+	
+	 
 	
 
 }
